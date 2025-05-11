@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roll n Roam - Find Your Next TTRPG Adventure</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid main-container">
+        <header>
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <i class="fas fa-dice-d20"></i> Roll n' Roam
+                    </a>
+                    
+                    <!-- Theme Toggle Button -->
+                    <div class="theme-toggle-container d-flex align-items-center me-3">
+                        <i class="fas fa-sun theme-icon light-icon"></i>
+                        <div class="form-check form-switch mx-2 mb-0">
+                            <input class="form-check-input" type="checkbox" id="themeSwitch" checked>
+                            <label class="form-check-label" for="themeSwitch"></label>
+                        </div>
+                        <i class="fas fa-moon theme-icon dark-icon active"></i>
+                    </div>
+                    
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-primary sign-up-btn" href="#" data-bs-toggle="modal" data-bs-target="#signupModal">Sign Up</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Main Content Area with Multiple Tabs -->
+        <div class="content-area">
+            <!-- Main Navigation Tabs -->
+            <ul class="nav nav-tabs main-tabs" id="mainTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-selected="true">
+                        <i class="fas fa-home"></i> Home
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="find-tab" data-bs-toggle="tab" data-bs-target="#find" type="button" role="tab" aria-selected="false">
+                        <i class="fas fa-search"></i> Find Games
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="host-tab" data-bs-toggle="tab" data-bs-target="#host" type="button" role="tab" aria-selected="false">
+                        <i class="fas fa-users"></i> Host Games
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="community-tab" data-bs-toggle="tab" data-bs-target="#community" type="button" role="tab" aria-selected="false">
+                        <i class="fas fa-comments"></i> Community
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="resources-tab" data-bs-toggle="tab" data-bs-target="#resources" type="button" role="tab" aria-selected="false">
+                        <i class="fas fa-book"></i> Resources
+                    </button>
+                </li>
+            </ul>
+            
+            <!-- Tab Content -->
+            <div class="tab-content h-100" id="mainTabsContent">
+                <!-- HOME TAB -->
+                <div class="tab-pane fade show active h-100" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="row g-0 h-100">
+                        <div class="col-md-6">
+                            <div class="hero-content">
+                                <h1>Find Your Next <span class="highlight">Adventure</span></h1>
+                                <p class="subtitle">Connect with Game Masters and players for tabletop RPG sessions - online or in-person.</p>
+                                <div class="mt-4">
+                                    <button class="btn btn-primary btn-lg me-2" data-bs-toggle="modal" data-bs-target="#signupModal">
+                                        <i class="fas fa-dice-d20 me-2"></i>Start Your Journey
+                                    </button>
+                                    <button class="btn btn-outline-secondary btn-lg" id="findGamesBtn">
+                                        <i class="fas fa-search me-2"></i>Browse Games
+                                    </button>
+                                </div>
+                                <div class="mt-4 game-systems">
+                                    <span class="badge rounded-pill">D&D</span>
+                                    <span class="badge rounded-pill">Pathfinder</span>
+                                    <span class="badge rounded-pill">Call of Cthulhu</span>
+                                    <span class="badge rounded-pill">Vampire: The Masquerade</span>
+                                    <span class="badge rounded-pill">+100 more</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FIND GAMES TAB -->
+                <div class="tab-pane fade h-100" id="find" role="tabpanel" aria-labelledby="find-tab">
+                    <div class="search-container">
+                        <div class="search-header">
+                            <h2><i class="fas fa-search"></i> Find Games</h2>
+                            <p>Discover your next tabletop adventure with our powerful search tools</p>
+                        </div>
+                        
+                        <!-- Search Bar and Filters -->
+                        <div class="search-bar-container">
+                            <div class="input-group main-search">
+                                <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                <input type="text" class="form-control" placeholder="Search by game name, system, GM, or keywords">
+                                <button class="btn btn-primary" type="button">Search</button>
+                                <button class="btn btn-outline-secondary filter-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#filterCollapse">
+                                    <i class="fas fa-filter"></i> Filters
+                                </button>
+                            </div>
+                            
+                            <!-- Collapsible Filters -->
+                            <div class="collapse" id="filterCollapse">
+                                <div class="filter-panel">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="mb-3">
+                                                <label class="form-label">Game System</label>
+                                                <select class="form-select">
+                                                    <option value="">Any System</option>
+                                                    <option>D&D 5e</option>
+                                                    <option>Pathfinder 2e</option>
+                                                    <option>Call of Cthulhu</option>
+                                                    <option>Vampire: The Masquerade</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="mb-3">
+                                                <label class="form-label">Experience Level</label>
+                                                <select class="form-select">
+                                                    <option value="">Any Level</option>
+                                                    <option>Beginner Friendly</option>
+                                                    <option>Intermediate</option>
+                                                    <option>Experienced</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="mb-3">
+                                                <label class="form-label">Game Format</label>
+                                                <select class="form-select">
+                                                    <option value="">Any Format</option>
+                                                    <option>Online</option>
+                                                    <option>In Person</option>
+                                                    <option>Hybrid</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="mb-3">
+                                                <label class="form-label">Frequency</label>
+                                                <select class="form-select">
+                                                    <option value="">Any Frequency</option>
+                                                    <option>One-shot</option>
+                                                    <option>Weekly</option>
+                                                    <option>Bi-weekly</option>
+                                                    <option>Monthly</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="mb-3">
+                                                <label class="form-label">Time Zone</label>
+                                                <select class="form-select">
+                                                    <option value="">Any Time Zone</option>
+                                                    <option>EST (GMT-5)</option>
+                                                    <option>CST (GMT-6)</option>
+                                                    <option>MST (GMT-7)</option>
+                                                    <option>PST (GMT-8)</option>
+                                                    <option>GMT</option>
+                                                    <option>CET (GMT+1)</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="mb-3">
+                                                <label class="form-label">Player Spots</label>
+                                                <select class="form-select">
+                                                    <option value="">Any</option>
+                                                    <option>1+ open spots</option>
+                                                    <option>2+ open spots</option>
+                                                    <option>3+ open spots</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="mb-3">
+                                                <label class="form-label">Tags</label>
+                                                <select class="form-select">
+                                                    <option value="">Select Tags</option>
+                                                    <option>Roleplay Heavy</option>
+                                                    <option>Combat Focused</option>
+                                                    <option>Mystery</option>
+                                                    <option>Horror</option>
+                                                    <option>Homebrew</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="mb-3">
+                                                <label class="form-label">Language</label>
+                                                <select class="form-select">
+                                                    <option value="">Any Language</option>
+                                                    <option>English</option>
+                                                    <option>Spanish</option>
+                                                    <option>French</option>
+                                                    <option>German</option>
+                                                    <option>Japanese</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="filter-actions">
+                                        <button class="btn btn-outline-secondary">Reset</button>
+                                        <button class="btn btn-primary">Apply Filters</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Quick Filter Pills -->
+                        <div class="quick-filters">
+                            <span class="quick-filter active">All</span>
+                            <span class="quick-filter">Online</span>
+                            <span class="quick-filter">In Person</span>
+                            <span class="quick-filter">One-Shots</span>
+                            <span class="quick-filter">Campaigns</span>
+                            <span class="quick-filter">Beginner Friendly</span>
+                        </div>
+                        
+                        <!-- Search Results -->
+                        <div class="search-results">
+                            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                                <!-- Game Card 1 -->
+                                <div class="col">
+                                    <div class="card game-card">
+                                        <div class="card-header">
+                                            <span class="game-system">D&D 5e</span>
+                                            <span class="game-format"><i class="fas fa-globe"></i> Online</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Curse of Strahd: Shadows of Barovia</h5>
+                                            <div class="gm-info">
+                                                <img src="https://rb.gy/5gtq5u" alt="GM" class="gm-avatar">
+                                                <span class="gm-name">DungeonMaster42</span>
+                                                <span class="gm-rating">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star-half-alt"></i>
+                                                </span>
+                                            </div>
+                                            <p class="card-text">A dark gothic horror campaign in the mists of Barovia. Challenging combat, rich roleplay, and tough moral choices.</p>
+                                            <div class="game-meta">
+                                                <div><i class="fas fa-users"></i> 2/5 spots open</div>
+                                                <div><i class="fas fa-calendar"></i> Weekly, Fridays</div>
+                                                <div><i class="fas fa-clock"></i> 7-10pm EST</div>
+                                            </div>
+                                            <div class="game-tags">
+                                                <span class="tag">Horror</span>
+                                                <span class="tag">Roleplay</span>
+                                                <span class="tag">Official</span>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-primary w-100">View Details</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Game Card 2 -->
+                                <div class="col">
+                                    <div class="card game-card">
+                                        <div class="card-header">
+                                            <span class="game-system">Pathfinder 2e</span>
+                                            <span class="game-format"><i class="fas fa-map-marker-alt"></i> In Person</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">The Age of Ashes</h5>
+                                            <div class="gm-info">
+                                                <img src="https://rb.gy/5gtq5u" alt="GM" class="gm-avatar">
+                                                <span class="gm-name">CriticalRoller</span>
+                                                <span class="gm-rating">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                </span>
+                                            </div>
+                                            <p class="card-text">Explore ruins, battle dragons, and uncover ancient mysteries in this Pathfinder Adventure Path.</p>
+                                            <div class="game-meta">
+                                                <div><i class="fas fa-users"></i> 1/4 spots open</div>
+                                                <div><i class="fas fa-calendar"></i> Bi-weekly, Saturdays</div>
+                                                <div><i class="fas fa-clock"></i> 2-6pm PST</div>
+                                            </div>
+                                            <div class="game-tags">
+                                                <span class="tag">Adventure</span>
+                                                <span class="tag">Combat</span>
+                                                <span class="tag">Beginner Friendly</span>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-primary w-100">View Details</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Game Card 3 -->
+                                <div class="col">
+                                    <div class="card game-card">
+                                        <div class="card-header">
+                                            <span class="game-system">Call of Cthulhu</span>
+                                            <span class="game-format"><i class="fas fa-globe"></i> Online</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">Whispers of the Void</h5>
+                                            <div class="gm-info">
+                                                <img src="https://rb.gy/5gtq5u" alt="GM" class="gm-avatar">
+                                                <span class="gm-name">ElderSign</span>
+                                                <span class="gm-rating">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </span>
+                                            </div>
+                                            <p class="card-text">A one-shot mystery investigation set in 1920s New England. Experience cosmic horror and solve ancient mysteries.</p>
+                                            <div class="game-meta">
+                                                <div><i class="fas fa-users"></i> 3/5 spots open</div>
+                                                <div><i class="fas fa-calendar"></i> One-shot, June 15</div>
+                                                <div><i class="fas fa-clock"></i> 6-10pm GMT</div>
+                                            </div>
+                                            <div class="game-tags">
+                                                <span class="tag">Horror</span>
+                                                <span class="tag">Mystery</span>
+                                                <span class="tag">One-shot</span>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-primary w-100">View Details</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="load-more text-center mt-4">
+                                <button class="btn btn-outline-primary">Load More Games</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- HOST GAMES TAB -->
+                <div class="tab-pane fade" id="host" role="tabpanel" aria-labelledby="host-tab">
+                    <div class="container py-4">
+                        <div class="text-center mb-5">
+                            <h2 class="display-5 fw-bold"><i class="fas fa-users me-2"></i>Host Your Games</h2>
+                            <p class="section-description">Create and manage your TTRPG sessions with powerful tools for Game Masters</p>
+                        </div>
+
+                        <div class="row gx-5">
+                            <!-- Left Column -->
+                            <div class="col-md-6">
+                                <div class="feature-item mb-4">
+                                    <div class="d-flex align-items-start">
+                                        <div class="feature-icon me-3">
+                                            <i class="fas fa-chess-board"></i>
+                                        </div>
+                                        <div class="feature-text">
+                                            <h4>Campaign Management</h4>
+                                            <p>Organize all your campaigns, sessions, and player information in one place</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="feature-item mb-4">
+                                    <div class="d-flex align-items-start">
+                                        <div class="feature-icon me-3">
+                                            <i class="fas fa-user-plus"></i>
+                                        </div>
+                                        <div class="feature-text">
+                                            <h4>Player Applications</h4>
+                                            <p>Review player applications and find the perfect fit for your group</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right Column -->
+                            <div class="col-md-6">
+                                <div class="feature-item mb-4">
+                                    <div class="d-flex align-items-start">
+                                        <div class="feature-icon me-3">
+                                            <i class="fas fa-calendar-check"></i>
+                                        </div>
+                                        <div class="feature-text">
+                                            <h4>Scheduling Tools</h4>
+                                            <p>Easily schedule sessions and send reminders to your players</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="feature-item mb-4">
+                                    <div class="d-flex align-items-start">
+                                        <div class="feature-icon me-3">
+                                            <i class="fas fa-book"></i>
+                                        </div>
+                                        <div class="feature-text">
+                                            <h4>Campaign Notes</h4>
+                                            <p>Keep track of your campaign with integrated notes and organization tools</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Start Hosting Button -->
+                        <div class="text-center mt-5">
+                            <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#signupModal">
+                                <i class="fas fa-dice-d20 me-2"></i>Start Hosting
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COMMUNITY TAB -->
+                <div class="tab-pane fade" id="community" role="tabpanel" aria-labelledby="community-tab">
+                    <div class="container py-4">
+                        <div class="text-center mb-5">
+                            <h2 class="display-5 fw-bold"><i class="fas fa-comments me-2"></i>Join the Community</h2>
+                            <p class="section-description">Connect with fellow players and GMs who share your passion for TTRPGs</p>
+                        </div>
+
+                        <div class="row gx-5">
+                            <!-- Left Column -->
+                            <div class="col-md-6">
+                                <div class="feature-item mb-4">
+                                    <div class="d-flex align-items-start">
+                                        <div class="feature-icon me-3">
+                                            <i class="fas fa-comments"></i>
+                                        </div>
+                                        <div class="feature-text">
+                                            <h4>Discussion Forums</h4>
+                                            <p>Engage in conversations about different game systems, campaign ideas, and more</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="feature-item mb-4">
+                                    <div class="d-flex align-items-start">
+                                        <div class="feature-icon me-3">
+                                            <i class="fas fa-handshake"></i>
+                                        </div>
+                                        <div class="feature-text">
+                                            <h4>Player Matching</h4>
+                                            <p>Find players who match your play style and schedule preferences</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right Column -->
+                            <div class="col-md-6">
+                                <div class="feature-item mb-4">
+                                    <div class="d-flex align-items-start">
+                                        <div class="feature-icon me-3">
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="feature-text">
+                                            <h4>Reviews and Ratings</h4>
+                                            <p>Leave feedback for GMs and players to build a trustworthy community</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="feature-item mb-4">
+                                    <div class="d-flex align-items-start">
+                                        <div class="feature-icon me-3">
+                                            <i class="fas fa-trophy"></i>
+                                        </div>
+                                        <div class="feature-text">
+                                            <h4>GM Achievements</h4>
+                                            <p>Earn badges and recognition for your Game Master skills</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Join Community Button -->
+                        <div class="text-center mt-5">
+                            <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#signupModal">
+                                <i class="fas fa-users me-2"></i>Join Community
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- RESOURCES TAB -->
+                <div class="tab-pane fade" id="resources" role="tabpanel" aria-labelledby="resources-tab">
+                    <div class="container py-4">
+                        <div class="text-center mb-5">
+                            <h2 class="display-5 fw-bold"><i class="fas fa-book me-2"></i>Resources & Tools</h2>
+                            <p class="section-description">Access everything you need to enhance your tabletop RPG experience</p>
+                        </div>
+
+                        <div class="row gx-5">
+                            <!-- Left Column -->
+                            <div class="col-md-6">
+                                <div class="feature-item mb-4">
+                                    <div class="d-flex align-items-start">
+                                        <div class="feature-icon me-3">
+                                            <i class="fas fa-dice"></i>
+                                        </div>
+                                        <div class="feature-text">
+                                            <h4>Digital Dice Roller</h4>
+                                            <p>Roll any combination of dice with our customizable digital dice roller</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="feature-item mb-4">
+                                    <div class="d-flex align-items-start">
+                                        <div class="feature-icon me-3">
+                                            <i class="fas fa-book-open"></i>
+                                        </div>
+                                        <div class="feature-text">
+                                            <h4>Character Sheets</h4>
+                                            <p>Access digital character sheets for a variety of popular RPG systems</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right Column -->
+                            <div class="col-md-6">
+                                <div class="feature-item mb-4">
+                                    <div class="d-flex align-items-start">
+                                        <div class="feature-icon me-3">
+                                            <i class="fas fa-map"></i>
+                                        </div>
+                                        <div class="feature-text">
+                                            <h4>Map Creation</h4>
+                                            <p>Design and share maps for your campaigns with our intuitive tools</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="feature-item mb-4">
+                                    <div class="d-flex align-items-start">
+                                        <div class="feature-icon me-3">
+                                            <i class="fas fa-graduation-cap"></i>
+                                        </div>
+                                        <div class="feature-text">
+                                            <h4>GM Tutorials</h4>
+                                            <p>Learn the art of game mastering with our comprehensive guides</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Access Resources Button -->
+                        <div class="text-center mt-5">
+                            <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#signupModal">
+                                <i class="fas fa-book me-2"></i>Access Resources
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start">
+                        <p class="copyright">&copy; 2025 Roll n Roam. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="social-icons">
+                            <a href="#" class="social-icon"><i class="fab fa-discord"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Login to Roll n Roam</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="loginEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" required>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Remember me</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Login</button>
+                    </form>
+                    <div class="text-center mt-3">
+                        <a href="#" class="text-decoration-none">Forgot your password?</a>
+                    </div>
+                    <div class="text-center mt-3">
+                        <p class="mb-0">Don't have an account? 
+                            <a href="#" class="text-decoration-none fw-bold" data-bs-toggle="modal" data-bs-target="#signupModal" data-bs-dismiss="modal">Sign Up</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sign Up Modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create Your Roll n Roam Account</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="signupUsername" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="signupUsername" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="signupEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="signupPassword" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>I am primarily a:</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="userType" id="playerType" checked>
+                                <label class="form-check-label" for="playerType">
+                                    Player
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="userType" id="gmType">
+                                <label class="form-check-label" for="gmType">
+                                    Game Master
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="userType" id="bothType">
+                                <label class="form-check-label" for="bothType">
+                                    Both
+                                </label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Create Account</button>
+                    </form>
+                    <div class="text-center mt-3">
+                        <p class="mb-0">Already have an account? 
+                            <a href="#" class="text-decoration-none fw-bold" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal">Login</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
