@@ -347,7 +347,7 @@ header {
     color: white;
 }
 
-/* Game Cards */
+/*
 .game-card {
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
@@ -455,6 +455,15 @@ header {
     background-color: var(--card-bg);
     border-top: 1px solid var(--border-color);
     padding: 1rem;
+} 
+*/
+
+.no-games-message {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-top: 1rem;
+    transition: var(--transition);
 }
 
 /* ======= FEATURE TAB SECTIONS ======= */
