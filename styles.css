@@ -620,18 +620,15 @@ footer {
     border-radius: var(--radius-md);
     border: 1px solid var(--border-color);
 }
-
 .modal-header {
     border-bottom: 1px solid var(--border-color);
     padding: 1rem 1.5rem;
     position: relative;
 }
-
 .modal-title {
     color: var(--text-color);
     font-weight: 600;
 }
-
 /* Improved Close Button */
 .btn-close {
     --close-btn-color: #{invert(#000, 20%)};
@@ -642,36 +639,29 @@ footer {
     padding: 0.5rem;
     margin: -0.5rem -0.5rem -0.5rem auto;
 }
-
 [data-theme="light"] .btn-close {
     --close-btn-color: #{invert(#fff, 20%)};
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e");
 }
-
 [data-theme="dark"] .btn-close {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e");
 }
-
 .btn-close:hover {
     opacity: 1;
     --close-btn-color: var(--primary-color);
 }
-
 .modal-body {
     padding: 1.5rem;
 }
-
 .modal-footer {
     border-top: 1px solid var(--border-color);
     padding: 1rem 1.5rem;
 }
-
 .form-label {
     color: var(--text-color);
     font-weight: 500;
     margin-bottom: 0.5rem;
 }
-
 .form-control {
     background-color: var(--input-bg);
     border: 1px solid var(--input-border);
@@ -679,14 +669,12 @@ footer {
     border-radius: var(--radius-sm);
     padding: 0.75rem 1rem;
 }
-
 .form-control:focus {
     background-color: var(--input-bg);
     color: var(--text-color);
     border-color: var(--primary-color);
     box-shadow: 0 0 0 0.25rem rgba(126, 63, 242, 0.25);
 }
-
 .form-check-input {
     background-color: var(--input-bg);
     border: 1px solid var(--input-border);
@@ -694,17 +682,14 @@ footer {
     height: 1.2em;
     margin-top: 0.1em;
 }
-
 .form-check-input:checked {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
 }
-
 .form-check-label {
     color: var(--text-color);
     margin-left: 0.5rem;
 }
-
 .form-select {
     background-color: var(--input-bg);
     border: 1px solid var(--input-border);
@@ -712,22 +697,66 @@ footer {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23f5f5f5' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
     padding: 0.75rem 2.5rem 0.75rem 1rem;
 }
-
 [data-theme="light"] .form-select {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23282846' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
 }
-
 .form-select:focus {
     background-color: var(--input-bg);
     color: var(--text-color);
     border-color: var(--primary-color);
     box-shadow: 0 0 0 0.25rem rgba(126, 63, 242, 0.25);
 }
-
 /* For Bootstrap compatibility */
 .modal .btn-close-white {
     filter: none;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e");
+}
+
+/* Improve dropdown/select styling for better visibility */
+/* Select dropdown menu styling */
+.form-select option {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 10px;
+}
+
+/* Custom styling for dropdown menus */
+select.form-select {
+    cursor: pointer;
+}
+
+/* Styling for select when open */
+.form-select:focus option:hover,
+.form-select:focus option:focus,
+.form-select:focus option:active,
+.form-select option:checked {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+/* Improved contrast for select elements in dark mode */
+[data-theme="dark"] .form-select option {
+    background-color: #242442;  /* Slightly lighter than the main bg */
+    color: #ffffff;
+}
+
+/* Fix for the select arrow in Firefox */
+@-moz-document url-prefix() {
+    .form-select {
+        text-indent: 0.01px;
+        text-overflow: '';
+        padding-right: 1rem;
+    }
+}
+
+/* Better styling for disabled options */
+.form-select option:disabled {
+    color: var(--text-secondary);
+}
+
+/* Add subtle hover effect for options */
+.form-select option:hover {
+    background-color: rgba(126, 63, 242, 0.2);
 }
 
 /* ======= TOAST CONTAINER ======= */
