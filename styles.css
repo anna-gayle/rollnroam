@@ -347,7 +347,7 @@ header {
     color: white;
 }
 
-/*
+/**/
 .game-card {
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
@@ -456,8 +456,8 @@ header {
     border-top: 1px solid var(--border-color);
     padding: 1rem;
 } 
-*/
 
+/*
 .no-games-message {
     font-size: 1.5rem;
     font-weight: 600;
@@ -465,6 +465,7 @@ header {
     margin-top: 1rem;
     transition: var(--transition);
 }
+*/
 
 /* ======= FEATURE TAB SECTIONS ======= */
 .tab-content-section {
