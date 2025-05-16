@@ -1,4 +1,4 @@
-# Landing Page Design for Human-Computer Interaction Course
+# HCI Final Project
 
 This is a mock landing page design created as the final project for the Human-Computer Interaction course. The project focuses solely on the visual design aspects of HCI principles and does not include backend functionality.
 
