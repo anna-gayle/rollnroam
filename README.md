@@ -11,6 +11,6 @@ This is a mock landing page design created as the final project for the Human-Co
 You can access the landing page design by clicking this link: https://anna-gayle.github.io/rollnroam/
 
 ## Notes
-- This is a frontend-only design exercise
+- This is a frontend-only design
 - All interactive elements are for visual demonstration only
 - The design does not include actual functionality
